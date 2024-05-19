@@ -1,0 +1,160 @@
+﻿@{
+    ViewData["Title"] = "Login & Register";
+
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+
+<div class="tm-breadcrumb-area tm-padding-section bg-grey" data-bgimage="../assets/images/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="tm-breadcrumb">
+            <h2>Login & Register</h2>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>Login & Register</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<main class="page-content">
+    <div class="tm-section tm-login-register-area bg-white tm-padding-section">
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <script>
+                alert("@ViewBag.Message");
+            </script>
+        }
+        <div class="container">
+            <!-- Navbar -->
+            <ul class="nav tm-tabgroup" id="account" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="account-dashboard-tab" data-toggle="tab"
+                       href="#login" role="tab" aria-controls="account-dashboard"
+                       aria-selected="true">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="account-orders-tab" data-toggle="tab" href="#register"
+                       role="tab" aria-controls="account-orders" aria-selected="false">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="account-address-tab" data-toggle="tab" href="#admin"
+                       role="tab" aria-controls="account-address" aria-selected="false">Admin</a>
+                </li>
+            </ul>
+            <div class="row mt-5">
+                <div class="tab-content">
+                    <!-- Login Tab -->
+                    <div class="tab-pane active" id="login">
+                        <div class="col-lg-6">
+                            <form action="@Url.Action("UserLogin", "Home")" class="tm-form tm-login-form">
+                                <h4>Login</h4>
+                                <p>Become a part of our community!</p>
+                                <div class="tm-form-inner">
+                                    <div class="tm-form-field">
+                                        <label for="login-email">Email address*</label>
+                                        <input type="email" id="login-email" required="required" name="getEmail">
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <label for="login-password">Password*</label>
+                                        <input type="password" id="login-password" required="required" name="getpass">
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <p class="mb-0"><a href="#">Forgot your password?</a></p>
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <button type="submit" class="tm-button">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Ragister Tab -->
+                    <div class="tab-pane" id="register">
+                        <div class="col-lg-6">
+                            <form action="@Url.Action("UserRegister", "Home")" method="post" class="tm-form tm-register-form">
+                                <h4>Create an account</h4>
+                                <p>Welcome! Register for an account</p>
+                                <div class="tm-form-inner mt-2">
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-fname">First Name</label>
+                                        <input type="text" id="register-fname" required="required" name="UserFname">
+                                    </div>
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-lname">Last Name</label>
+                                        <input type="text" id="register-lname" required="required" name="UserLname">
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <label for="register-email">Email address</label>
+                                        <input type="email" id="register-email" required="required" name="EmailID">
+                                    </div>
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-phone">Phone</label>
+                                        <input type="number" id="register-phone" required="required" name="MobNo">
+                                    </div>
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-password">Password</label>
+                                        <input type="password" id="register-password" name="Password"
+                                               required="required">
+                                    </div>
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-dof">Date of Birth</label>
+                                        <input type="date" id="register-dof" required="required" name="DOB">
+                                    </div>
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-state">State</label>
+                                        <input type="text" id="register-state" required="required" name="State">
+                                    </div>
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-city">City</label>
+                                        <input type="text" id="register-city" required="required" name="City">
+                                    </div>
+                                    <div class="tm-form-fieldhalf">
+                                        <label for="register-address">Address</label>
+                                        <input type="text" id="register-address" required="required" name="Address">
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <button type="submit" class="tm-button">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Admin Tab -->
+                    <div class="tab-pane" id="admin">
+                        <div class="col-lg-6">
+                            <form action="@Url.Action("AdminLogin", "Home")" method="post" class="tm-form tm-login-form">
+                                <h4>Admin Login</h4>
+                                <p>Admin Panel Access! This Login page is only for admin.</p>
+                                <p class="hidden">@ViewBag.Message</p>
+                                <div class="tm-form-inner">
+                                    <div class="tm-form-field">
+                                        <label for="login-email">Username or email address*</label>
+                                        <input type="text" id="login-email" required="required" name="getusername">
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <label for="login-password">Password*</label>
+                                        <input type="password" id="login-password" required="required" name="getpassword">
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <p class="mb-0"><a href="#">Forgot your password?</a></p>
+                                    </div>
+                                    <div class="tm-form-field">
+                                        <button type="submit" class="tm-button">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script>
+        alert('@ViewBag.Message');
+    </script>
+}

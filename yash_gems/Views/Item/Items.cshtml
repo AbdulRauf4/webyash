@@ -1,0 +1,298 @@
+﻿@{
+    ViewData["Title"] = "Items - Admin Dashboard";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-secondary" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<!-- Items Counter -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Items</p>
+                    <h6 class="mb-0">0</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#additem">Add Item</button>
+        </div>
+        <div class="col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Certificate</p>
+                    <h6 class="mb-0">0</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#addCertif">Add Certficate</button>
+        </div>
+    </div>
+</div>
+<!-- Items Counter -->
+<!-- Forms -->
+<div class="modal fade" id="additem" tabindex="-1" aria-labelledby="additem" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Item Form -->
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="style-addon1">SOC</span>
+                        <input type="text" class="form-control" name="StyleCode" placeholder="Enter Code Of Style">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="Pairs" placeholder="Enter Pairs Of Product">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="BrandID" placeholder="Enter ID Of Particular Brand" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="Quantity" placeholder="Enter Available Quantity">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="CategoryID" placeholder="Enter ID Of Category" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="ProdQuality" placeholder="Enter Quality Of Product">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="CertifyID" placeholder="Enter ID Of Certification" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="ProdID" placeholder="Enter Product ID" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="GoldTypeID" placeholder="Enter ID Of Gold Type" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="GoldWt" placeholder="Enter Weight Of Gold">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="StoneWt" placeholder="Enter Weight Of Stone">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="NetGold" placeholder="Enter Net Gold">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="WstgPer" placeholder="Enter Wastage In Percentage">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="Wstg" placeholder="Enter Wastage">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="TotGrossWt" placeholder="Enter Total Gross Weight">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="GoldRate" placeholder="Enter Rate Of Gold">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="GoldAmt" placeholder="Enter Amount Of Gold In Item">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="GoldMaking" placeholder="Enter Gold Making Charges">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="StoneMaking" placeholder="Enter Stone Making Charges">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="OtherMaking" placeholder="Enter Other Making Charges">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="TotMaking" placeholder="Enter Total Making Charges">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="MRP" placeholder="Enter MRP Of Product" >
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="Image" placeholder="Enter Image" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="checkbox" class="form-check-input" name="IsAvailable" value="true">
+                        <label class="form-check-label" for="IsAvailable">Is Available</label>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="checkbox" class="form-check-input" name="IsOnSale" value="true">
+                        <label class="form-check-label" for="IsOnSale">Is On Sale</label>
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-2" type="submit">Save</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addCertif" tabindex="-1" aria-labelledby="additem" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Certficate Form -->
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="style-addon1">CE</span>
+                        <input type="text" class="form-control" placeholder="Enter Id of Certificate" aria-label="style-code" aria-describedby="style-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Type of Certificate" aria-label="mrp">
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-2" type="button">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Forms -->
+<!-- Items Table -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-8 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Items List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Code Of Style</th>
+                                <th scope="col">Pairs Of Product</th>
+                                <th scope="col">ID Of Particular Brand</th>
+                                <th scope="col">Available Quantity</th>
+                                <th scope="col">ID Of Category</th>
+                                <th scope="col">Quality Of Product</th>
+                                <th scope="col">ID Of Certification</th>
+                                <th scope="col">Product ID</th>
+                                <th scope="col">ID Of Gold Type</th>
+                                <th scope="col">Weight Of Gold</th>
+                                <th scope="col">Weight Of Stone</th>
+                                <th scope="col">Net Gold</th>
+                                <th scope="col">Wastage In Percentage</th>
+                                <th scope="col">Wastage</th>
+                                <th scope="col">Total Gross Weight</th>
+                                <th scope="col">Rate Of Gold</th>
+                                <th scope="col">Amount Of Gold In Item</th>
+                                <th scope="col">Gold Making Charges</th>
+                                <th scope="col">Stone Making Charges</th>
+                                <th scope="col">Other Making Charges</th>
+                                <th scope="col">Total Making Charges</th>
+                                <th scope="col">MRP Of Product</th>
+                                <th scope="col">Image URL</th>
+                                <th scope="col">Is Available</th>
+                                <th scope="col">Is On Sale</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SC001</td>
+                                <td>10</td>
+                                <td>B001</td>
+                                <td>100</td>
+                                <td>C001</td>
+                                <td>High</td>
+                                <td>Cert001</td>
+                                <td>P001</td>
+                                <td>G001</td>
+                                <td>5.678</td>
+                                <td>3.45</td>
+                                <td>2.228</td>
+                                <td>5.5</td>
+                                <td>0.25</td>
+                                <td>1.375</td>
+                                <td>6.928</td>
+                                <td>4000</td>
+                                <td>28000</td>
+                                <td>500</td>
+                                <td>800</td>
+                                <td>300</td>
+                                <td>1600</td>
+                                <td>30800</td>
+                                <td>http://example.com/image.jpg</td>
+                                <td>Yes</td>
+                                <td>No</td>
+                                <td class="d-flex">
+                                    <!-- Edit Style Data -->
+                                    <a href="@Url.Action("editItem", "Item")" class="btn-square btn-success btn"><i class="fa fa-pen"></i></a>
+                                    <!-- Delete Style -->
+                                    <a href="@Url.Action("delItem", "Item")" class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate -->
+        <div class="col-xl-4 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Items List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Certficate ID</th>
+                                <th scope="col">Type Of Certificate</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SC001</td>
+                                <td>10</td>
+                                <td class="d-flex">
+                                    <!-- Edit Style Data -->
+                                    <a href="@Url.Action("editCertificate", "Item")" class="btn-square btn-success btn"><i class="fa fa-pen"></i></a>
+                                    <!-- Delete Style -->
+                                    <a href="@Url.Action("delCertificate", "Item")" class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Table -->

@@ -1,0 +1,156 @@
+﻿@{
+    ViewData["Title"] = "Jewellery & Gold - Admin Dashboard";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-secondary" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<!-- Counter -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Jewelery Types</p>
+                    <h6 class="mb-0">0</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#addJewel">Add Jewellery Type</button>
+        </div>
+        <div class="col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Gold Carat</p>
+                    <h6 class="mb-0">0</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#addGold">Add Gold Carat</button>
+        </div>
+    </div>
+</div>
+<!-- Counter -->
+<!-- Forms -->
+<div class="modal fade" id="addJewel" tabindex="-1" aria-labelledby="addJewel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Jewellery Type</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Gold Carat Form -->
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon1">J</span>
+                        <input type="text" class="form-control" placeholder="Enter Id of Jewellery" aria-label="style-code" aria-describedby="addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Jewellery Type" aria-label="mrp">
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-2" type="button">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addGold" tabindex="-1" aria-labelledby="addGold" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Gold Carat</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Jewellery Type Form -->
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="addon1">G</span>
+                        <input type="text" class="form-control" placeholder="Enter Id of Gold Type" aria-describedby="addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Gold Carat" aria-label="mrp">
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-2" type="button">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Forms -->
+<!-- Items Table -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-xl-6 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Jewellery Type List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID of Jewelllery</th>
+                                <th scope="col">Jewellery Type</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SC001</td>
+                                <td>10</td>
+                                <td class="d-flex">
+                                    <!-- Edit Style Data -->
+                                    <button class="btn-square btn-success btn" data-bs-toggle="modal" data-bs-target="#editStyle"><i class="fa fa-pen"></i></button>
+                                    <!-- Delete Style -->
+                                    <button class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate -->
+        <div class="col-xl-6 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Gold Carat List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID of Gold Type</th>
+                                <th scope="col">Gold Carat</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SC001</td>
+                                <td>10</td>
+                                <td class="d-flex">
+                                    <!-- Edit Style Data -->
+                                    <button class="btn-square btn-success btn" data-bs-toggle="modal" data-bs-target="#editStyle"><i class="fa fa-pen"></i></button>
+                                    <!-- Delete Style -->
+                                    <button class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Table -->

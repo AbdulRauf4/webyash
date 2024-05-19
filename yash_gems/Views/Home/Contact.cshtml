@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="tm-breadcrumb-area tm-padding-section bg-grey" data-bgimage="../assets/images/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="tm-breadcrumb">
+            <h2>Contact Us</h2>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<main class="page-content">
+    <div id="google-map" class="google-map w-100">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="1440" height="560" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=636+5th+Ave%2C+New+York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://online.stopwatch-timer.net"></a><br><a href="https://textcaseconvert.com"></a><br>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        height: 560px;
+                        width: 1440px;
+                    }
+                </style><a href="https://www.ongooglemaps.com">google maps on website</a>
+                <style>
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 560px;
+                        width: 1440px;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+    <div class="tm-section tm-contact-area tm-padding-section bg-white">
+        <div class="container">
+            <div class="tm-contact-blocks">
+                <div class="row mt-30-reverse justify-content-center">
+                    <div class="col-lg-4 col-md-6  mt-30">
+                        <div class="tm-contact-block text-center">
+                            <i class="ion-android-call"></i>
+                            <h6>Call Us</h6>
+                            <p>Phone : <a href="tel:+18009156270">1 800 915 6270</a></p>
+                            <p>Tel : <a href="tel:+15147332010">1 514 733 2010</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  mt-30">
+                        <div class="tm-contact-block text-center">
+                            <i class="ion-location"></i>
+                            <h6>Our Location</h6>
+                            <p>7415 Transcanadienne, Suite 100 St. Laurent, Quebec, Canada H45T 1Z22</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6  mt-30">
+                        <div class="tm-contact-block text-center">
+                            <i class="ion-email"></i>
+                            <h6>Email</h6>
+                            <p><a href="mailto:yashjewellers@gmail.com">yashjewewllers@gmail.com</a></p>
+                            <p><a href="mailto:info@surose.com">info@yashjewellers.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tm-contact-forms tm-padding-section-top">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-12">
+                        <div class="tm-sectiontitle text-center">
+                            <h3>SEND US A MESSAGE</h3>
+                            <p>
+                                You can contact us for any of your requirements. We’ll help you meet your needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <form id="tm-contactform"
+                              action="@Url.Action("SendInquiry", "Home")"
+                              class="tm-contact-forminner tm-form" method="POST">
+                            <div class="tm-form-inner">
+                                <div class="tm-form-field tm-form-fieldhalf">
+                                    <label for="contact-form-name">Name</label>
+                                    <input type="text" id="contact-form-name" placeholder="Your name here"
+                                           name="Name" required>
+                                </div>
+                                <div class="tm-form-field tm-form-fieldhalf">
+                                    <label for="contact-form-email">Email</label>
+                                    <input type="email" id="contact-form-email" placeholder="domain@example.com"
+                                           name="EmailID" required>
+                                </div>
+                                <div class="tm-form-field tm-form-fieldhalf">
+                                    <label for="contact-form-phone">Phone</label>
+                                    <input type="number" id="contact-form-phone"
+                                           placeholder="Your phone number here" name="Contact" required>
+                                </div>
+                                <div class="tm-form-field tm-form-fieldhalf">
+                                    <label for="contact-form-City">City</label>
+                                    <input type="text" id="contact-form-Cit" placeholder="City"
+                                           name="City">
+                                </div>
+                                <div class="tm-form-field">
+                                    <label for="contact-form-message">Message</label>
+                                    <textarea cols="30" rows="5" id="contact-form-message"
+                                              placeholder="Write your message" name="Comment"></textarea>
+                                </div>
+                                <div class="tm-form-field text-center">
+                                    <button type="submit" class="tm-button tm-button-block">
+                                        Send
+                                        Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="form-messages"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script>
+        alert('@ViewBag.Message');
+    </script>
+}

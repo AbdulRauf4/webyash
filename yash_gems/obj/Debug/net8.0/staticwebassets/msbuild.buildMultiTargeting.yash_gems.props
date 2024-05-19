@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\yash_gems.props" />
+</Project>

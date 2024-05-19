@@ -1,0 +1,262 @@
+﻿@model yash_gems.Models.DashboardListViewModel;
+
+@{
+    ViewData["Title"] = "Home - Admin Dashboard";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+
+<!-- Counter Start -->
+<div class="container-fluid pt-4 px-4">
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewBag.Message
+        </div>
+    }
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-brands fa-opencart fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Orders</p>
+                    <h6 class="mb-0"> 0</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Products</p>
+                    <h6 class="mb-0">@ViewBag.TotalProduct</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-star fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Today Brands</p>
+                    <h6 class="mb-0">@ViewBag.TotalBrand</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-users fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Users</p>
+                    <h6 class="mb-0">@ViewBag.TotalUsers</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Counter End -->
+<!-- Forms -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <!-- Add Category Form -->
+        <div class="col-xl-4 col-lg-4 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Add Category</h6>
+                <form method="post" action="@Url.Action("addCategory", "Admin")">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="cat-addon1">CAT</span>
+                        <input type="text" class="form-control" placeholder="Enter Category ID" name="Cat_ID" required="required" aria-label="cat-Id"
+                               aria-describedby="cat-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Category Name" name="Cat_Name" required="required" aria-label="cat-Name">
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+        <!-- Add Brand Form -->
+        <div class="col-xl-4 col-lg-4 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Add Brand</h6>
+                <form method="post" action="@Url.Action("addBrand", "Admin")">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="brand-addon1">BND</span>
+                        <input type="text" class="form-control" placeholder="Enter Brand ID" name="Brand_ID" required="required" aria-label="brand-Id"
+                               aria-describedby="brand-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Brand Type" name="Brand_Type" required="required" aria-label="brand-Name">
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+        <!-- Add Product Form -->
+        <div class="col-xl-4 col-lg-4 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Add Product</h6>
+                <form method="post" action="@Url.Action("addProduct", "Admin")">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="prod-addon1">PRD</span>
+                        <input type="text" class="form-control" placeholder="Enter Product ID" name="Prod_ID" required="required" aria-label="prod-Id"
+                               aria-describedby="prod-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Product Type" name="Prod_Type" required="required" aria-label="prod-Type">
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Forms -->
+<!-- Inquiry Table -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Inquiries - <b>( @ViewBag.TotalInquiry )</b></h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Message</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var inq in Model.InquiryList)
+                            {
+                                <tr>
+                                    <td>@inq.Name</td>
+                                    <td>@inq.Contact</td>
+                                    <td>@inq.City</td>
+                                    <td>@inq.EmailID</td>
+                                    <td>@inq.Comment</td>
+                                    <td class="d-flex">
+                                        <!-- Delete -->
+                                        <a href="@Url.Action("delInquiry", "Admin", new{ id = inq.ID })" class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Second Row -->
+    <div class="row g-4 mt-2">
+        <!-- Category List -->
+        <div class="col-xl-4 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Categories - <b>( @ViewBag.TotalCategory )</b></h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Category ID</th>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var categ in Model.CategoryList)
+                            {
+                                <tr>
+                                    <td>@categ.Cat_ID</td>
+                                    <td>@categ.Cat_Name</td>
+                                    <td class="d-flex">
+                                        <!-- Edit Style Data -->
+                                        <a href="@Url.Action("editCategory", "Admin", new{ id = categ.Cat_ID })" class="btn-square btn-success btn"><i class="fa fa-pen"></i></a>
+                                        <!-- Delete -->
+                                        <a href="@Url.Action("delCategory", "Admin", new{ id = categ.Cat_ID })" class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Product List -->
+        <div class="col-xl-4 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Products - <b>( @ViewBag.TotalProduct )</b></h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product ID</th>
+                                <th scope="col">Product Type</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var prod in Model.ProductList)
+                            {
+                                <tr>
+                                    <td>@prod.Prod_ID</td>
+                                    <td>@prod.Prod_Type</td>
+                                    <td class="d-flex">
+                                        <!-- Edit Style Data -->
+                                        <a href="@Url.Action("editProduct", "Admin", new{ id = prod.Prod_ID })" class="btn-square btn-success btn"><i class="fa fa-pen"></i></a>
+                                        <!-- Delete -->
+                                        <a href="@Url.Action("delProduct", "Admin", new{ id = prod.Prod_ID })" class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Brand List -->
+        <div class="col-xl-4 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Brands - <b>( @ViewBag.TotalBrand )</b></h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Brand ID</th>
+                                <th scope="col">Brand Type</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var brand in Model.BrandList)
+                            {
+                                <tr>
+                                    <td>@brand.Brand_ID</td>
+                                    <td>@brand.Brand_Type</td>
+                                    <td class="d-flex">
+                                        <!-- Edit Style Data -->
+                                        <a href="@Url.Action("editBrand", "Admin", new{ id = brand.Brand_ID })" class="btn-square btn-success btn"><i class="fa fa-pen"></i></a>
+                                        <!-- Delete -->
+                                        <a href="@Url.Action("delBrand", "Admin", new{ id = brand.Brand_ID })" class="btn btn-square ms-1 btn-danger"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Table -->
+<!-- Message Alert -->
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script>
+        alert('@ViewBag.Message');
+    </script>
+}

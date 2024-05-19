@@ -1,0 +1,61 @@
+﻿@using WebApp.Models
+@model PaginatedList<yash_gems.Models.DiamondsModel>
+
+@{
+    ViewData["Title"] = "Diamond List";
+
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container my-5">
+    <h2 class="display-4 fw-bold my-5 text-center">Diamonds Rates List</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Style Code</th>
+                        <th scope="col">Diamond Quality ID</th>
+                        <th scope="col">Sub Type ID Of Diamond</th>
+                        <th scope="col">Carat Of Diamond</th>
+                        <th scope="col">Total Pcs Of Diamond In Item</th>
+                        <th scope="col">Weight Of Each Diamond (Grams)</th>
+                        <th scope="col">Size Of Each Diamond</th>
+                        <th scope="col">Rate Of Each Diamond</th>
+                        <th scope="col">Total Amount Of All Diamonds In Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var dim in Model)
+                    {
+                        <tr>
+                            <td>@dim.Style_Code</td>
+                            <td>@dim.DimQlty</td>
+                            <td>@dim.DimSubType</td>
+                            <td>@dim.Dim_Crt</td>
+                            <td>@dim.Dim_Pcs</td>
+                            <td>@dim.Dim_Gm</td>
+                            <td>@dim.Dim_Size</td>
+                            <td>@dim.Dim_Rate</td>
+                            <td>@dim.Dim_Amt</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="pagination ms-auto">
+                <a asp-action="diamondlist"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   class="mx-3 btn bg-primary @(Model.PreviousPage ? "" : "disabled")">
+                    <i class="fa-solid fa-angles-left"></i>
+                </a>
+
+                <a asp-action="diamondlist"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   class="btn bg-primary  @(Model.NextPage ? "" : "disabled")">
+                    <i class="fa-solid fa-angles-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

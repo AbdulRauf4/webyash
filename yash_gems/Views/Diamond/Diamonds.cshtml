@@ -1,0 +1,420 @@
+﻿@model yash_gems.Models.DiamondsViewModel;
+
+@{
+    ViewData["Title"] = "Diamonds - Admin Dashboard";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-secondary" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<!-- Diamonds Counter -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-circle-info fa-3x text-primary"></i>
+                <div class="ms-3 text-end">
+                    <p class="mb-2">Total Diamonds Information</p>
+                    <h6 class="mb-0">@ViewBag.dimtable[2]</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#dim-info">Add Diamond Info</button>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-gem fa-3x text-primary"></i>
+                <div class="ms-3 text-end">
+                    <p class="mb-2">Total Diamonds</p>
+                    <h6 class="mb-0">@ViewBag.dimtable[3]</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#dim">Add Diamond</button>
+        </div>
+    </div>
+    <div class="row g-4 mt-1">
+
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-star fa-3x text-primary"></i>
+                <div class="ms-3 text-end">
+                    <p class="mb-2">Total Diamonds Quality</p>
+                    <h6 class="mb-0">@ViewBag.dimtable[0]</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#dim-qlty">Add Diamond Quality</button>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-regular fa-star fa-3x text-primary"></i>
+                <div class="ms-3 text-end">
+                    <p class="mb-2">Total Diamonds Sub Quality</p>
+                    <h6 class="mb-0">@ViewBag.dimtable[1]</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#dim-subtype">Add Diamond Sub Quality</button>
+        </div>
+    </div>
+</div>
+<!-- Diamonds Counter -->
+<!-- Forms -->
+<div class="modal fade" id="dim-info" tabindex="-1" aria-labelledby="dim-info" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Diamond Information</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="bg-light rounded h-100 p-4">
+                    <form method="post" action="@Url.Action("addDiamondInfo", "Diamond")">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="dim-addon1">DII</span>
+                            <input type="text" class="form-control" placeholder="Enter Diamond ID" name="DimID">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <select class="form-control" name="DimType">
+                                <option value="">Enter Diamond Type</option>
+                                @foreach (var dimtype in Model.listDimQlty)
+                                {
+                                    <option value="@dimtype.DimQlty">@dimtype.DimQlty_ID @dimtype.DimQlty</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <select class="form-control" name="DimSubType">
+                                <option value="">Enter Sub Type Of Diamond</option>
+                                @foreach (var dimsub in Model.listDimSubQlty)
+                                {
+                                    <option value="@dimsub.DimSubType">@dimsub.DimSubType_ID @dimsub.DimSubType</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Carat Of Diamond" name="DimCrt">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Price Of Diamond" name="DimPrice">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" aria-label="dim-img" name="DimImg">
+                        </div>
+
+                        <button class="btn btn-primary w-100 mt-2" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * -------------- * -->
+<div class="modal fade" id="dim" tabindex="-1" aria-labelledby="dim" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Diamond</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="bg-light rounded h-100 p-4">
+                    <form method="post" action="@Url.Action("addDiamond", "Diamond")">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="dim-addon1">COS</span>
+                            <input type="text" class="form-control" placeholder="Enter Code of Style" aria-label="dim-addon1" name="Style_Code">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <select class="form-control" name="DimQlty">
+                                <option value="">Enter Diamond Quality</option>
+                                @foreach (var dimtype in Model.listDimQlty)
+                                {
+                                    <option value="@dimtype.DimQlty">@dimtype.DimQlty</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <select class="form-control" name="DimSubType">
+                                <option value="">Enter Sub Type Of Diamond</option>
+                                @foreach (var dimsub in Model.listDimSubQlty)
+                                {
+                                    <option value="@dimsub.DimSubType">@dimsub.DimSubType</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Carat Of Diamond" name="Dim_Crt">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Total Pcs Of Diamond In Item" name="Dim_Pcs">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Weight Of Each Diamond (Grams)" name="Dim_Gm">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Size Of Each Diamond" name="Dim_Size">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Rate Of Each Diamond" name="Dim_Rate">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Enter Total Amount Of All Diamonds In Item" name="Dim_Amt">
+                        </div>
+                        <button class="btn btn-primary w-100 mt-2" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * -------------- * -->
+<div class="modal fade" id="dim-qlty" tabindex="-1" aria-labelledby="dim-qlty" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Diamond Quality</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="bg-light rounded h-100 p-4">
+                    <form method="post" action="@Url.Action("addDiamondQlty", "Diamond")">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="dimql-addon1">DIQ</span>
+                            <input type="text" class="form-control" placeholder="Enter ID Of Diamond Quality" aria-describedby="dimql-addon1" name="DimQlty_ID">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter Quality Of Diamond (AD, FD, VVS, etc...)" name="DimQlty">
+                        </div>
+
+                        <button class="btn btn-primary w-100 mt-2" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * -------------- * -->
+<div class="modal fade" id="dim-subtype" tabindex="-1" aria-labelledby="dim-subtype-id" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Diamond Sub Quality</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="bg-light rounded h-100 p-4">
+                    <form method="post" action="@Url.Action("addDiamondSubQlty", "Diamond")">
+                        <<div class="input-group mb-3">
+                            <span class="input-group-text" id="dimsubql-addon1">DSQ</span>
+                            <input type="text" class="form-control" placeholder="Enter Sub Type ID Of Diamond" name="DimSubType_ID" aria-describedby="dimsubql-addon1">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter Quality Of Diamond" name="DimQlty">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter Sub Type Of Diamond" name="DimSubType">
+                        </div>
+
+                        <button class="btn btn-primary w-100 mt-2" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Forms -->
+<!-- Table -->
+<div class="container-fluid pt-4 px-4 mt-4">
+    <div class="row g-4">
+        <div class="col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Diamond List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Style Code</th>
+                                <th scope="col">Diamond Quality ID</th>
+                                <th scope="col">Sub Type ID Of Diamond</th>
+                                <th scope="col">Carat Of Diamond</th>
+                                <th scope="col">Total Pcs Of Diamond In Item</th>
+                                <th scope="col">Weight Of Each Diamond (Grams)</th>
+                                <th scope="col">Size Of Each Diamond</th>
+                                <th scope="col">Rate Of Each Diamond</th>
+                                <th scope="col">Total Amount Of All Diamonds In Item</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dim in Model.listDims)
+                            {
+                                <tr>
+                                    <td>@dim.Style_Code</td>
+                                    <td>@dim.DimQlty</td>
+                                    <td>@dim.DimSubType</td>
+                                    <td>@dim.Dim_Crt</td>
+                                    <td>@dim.Dim_Pcs</td>
+                                    <td>@dim.Dim_Gm</td>
+                                    <td>@dim.Dim_Size</td>
+                                    <td>@dim.Dim_Rate</td>
+                                    <td>@dim.Dim_Amt</td>
+                                    <td class="d-flex">
+                                        <!-- Edit Stone Data -->
+                                        <a href="@Url.Action(" editDiamond", "Diamond" , new{ id=dim.D_Id })" class="btn-square btn-success btn">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <!-- Delete stone -->
+                                        <a href="@Url.Action(" delDiamond", "Diamond" , new{ id=dim.D_Id })" class="btn btn-square ms-1 btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4 mt-1">
+        <div class="col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Diamond Information List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Diamond Id</th>
+                                <th scope="col">Diamond Quality</th>
+                                <th scope="col">Diamond Sub Quality</th>
+                                <th scope="col">Diamond Carat</th>
+                                <th scope="col">Diamond Price</th>
+                                <th scope="col">Diamond Image</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var diminfo in Model.listDimInfo)
+                            {
+                                <tr>
+                                    <td>@diminfo.DimID</td>
+                                    <td>@diminfo.DimType</td>
+                                    <td>@diminfo.DimSubType</td>
+                                    <td>@diminfo.DimCrt</td>
+                                    <td>@diminfo.DimPrice</td>
+                                    <td>
+                                        <img src="~/assets/diamondimages/@diminfo.DimImg" alt="Diamond Img" />
+                                    </td>
+                                    <td class="d-flex">
+                                        <!-- Edit Stone Data -->
+                                        <a href="@Url.Action(" editDiamondInfo", "Diamond" , new{ id=diminfo.DimID })" class="btn-square btn-success btn">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <!-- Delete stone -->
+                                        <a href="@Url.Action(" delDiamondInfo", "Diamond" , new{ id=diminfo.DimID })" class="btn btn-square ms-1 btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4 mt-1">
+        <div class="col-xl-6 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Diamond Qualities List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID Of Diamond Quality</th>
+                                <th scope="col">Quality Of Diamond</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dimqlty in Model.listDimQlty)
+                            {
+                                <tr>
+                                    <td>@dimqlty.DimQlty_ID</td>
+                                    <td>@dimqlty.DimQlty</td>
+                                    <td class="d-flex">
+                                        <!-- Edit Stone Data -->
+                                        <a href="@Url.Action(" editDiamondQlty", "Diamond" , new{ id=dimqlty.DimQlty_ID })" class="btn-square btn-success btn">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <!-- Delete stone -->
+                                        <a href="@Url.Action(" delDiamondQlty", "Diamond" , new{ id=dimqlty.DimQlty_ID })" class="btn btn-square ms-1 btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Diamond Sub Qualities List</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sub Type ID</th>
+                                <th scope="col">Quality Of Diamond</th>
+                                <th scope="col">Sub Type</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dimsub in Model.listDimSubQlty)
+                            {
+                                <tr>
+                                    <td>@dimsub.DimSubType_ID</td>
+                                    <td>@dimsub.DimQlty</td>
+                                    <td>@dimsub.DimSubType</td>
+                                    <td class="d-flex">
+                                        <!-- Edit Stone Data -->
+                                        <a href="@Url.Action(" editDiamondSubQlty", "Diamond" , new{ id=dimsub.DimSubType_ID })" class="btn-square btn-success btn">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <!-- Delete stone -->
+                                        <a href="@Url.Action(" delDiamondSubQlty", "Diamond" , new{ id=dimsub.DimSubType_ID })" class="btn btn-square ms-1 btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Table -->

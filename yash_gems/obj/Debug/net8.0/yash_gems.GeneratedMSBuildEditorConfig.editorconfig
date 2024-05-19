@@ -1,0 +1,139 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = yash_gems
+build_property.RootNamespace = yash_gems
+build_property.ProjectDir = F:\A\githubrepo\web_yash\yash_gems\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\A\githubrepo\web_yash\yash_gems
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Admin/editBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cZWRpdEJyYW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Admin/editCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cZWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Admin/editProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cZWRpdFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Admin/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Diamond/diamondlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhbW9uZFxkaWFtb25kbGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Diamond/Diamonds.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhbW9uZFxEaWFtb25kcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Diamond/editDiamond.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhbW9uZFxlZGl0RGlhbW9uZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Diamond/editDiamondInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhbW9uZFxlZGl0RGlhbW9uZEluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Diamond/editDiamondQlty.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhbW9uZFxlZGl0RGlhbW9uZFFsdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Diamond/editDiamondSubQlty.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhbW9uZFxlZGl0RGlhbW9uZFN1YlFsdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/LoginRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpblJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Home/Wishlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxXaXNobGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Item/Items.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbVxJdGVtcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/JewelleryGold/JewelleryandGold.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSmV3ZWxsZXJ5R29sZFxKZXdlbGxlcnlhbmRHb2xkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Stone/Stones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvbmVcU3RvbmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/User/myAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxteUFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/A/githubrepo/web_yash/yash_gems/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-a3qymkdjdy

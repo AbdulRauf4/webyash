@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Edit Diamond Sub Quality - Admin";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 mx-auto">
+            <div class="bg-light w-100 my-5 rounded p-4">
+                <h4>Edit Diamond Sub Quality</h4>
+                @Model
+                <form method="post" action="@Url.Action("editDiamondSubQlty", "Diamond")">
+                    <<div class="input-group mb-3">
+                        <span class="input-group-text" id="dimsubql-addon1">DSQ</span>
+                        <input type="text" class="form-control" placeholder="Enter Sub Type ID Of Diamond" value="@Model.DimSubType_ID" aria-describedby="dimsubql-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Quality Of Diamond" value="@Model.DimQlty">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Sub Type Of Diamond" value="@Model.DimSubType">
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-2" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

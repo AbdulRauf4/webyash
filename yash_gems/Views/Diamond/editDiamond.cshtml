@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Edit Diamond - Admin";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 mx-auto">
+            <div class="bg-light w-100 my-5 rounded p-4">
+                <h4>Edit Diamond</h4>
+                @Model
+                <form method="post" action="@Url.Action("editDiamond", "Diamond")">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="dim-addon1">COS</span>
+                        <input type="text" class="form-control" placeholder="Enter Code of Style" aria-label="dim-addon1" value="@Model.Style_Code">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter ID Of Diamond Quality" value="@Model.DimQlty">
+                        <select class="form-control" name="DimQlty">
+                            <option value="">Enter Diamond Quality</option>
+                            @foreach (var dimtype in Model.listDimQlty)
+                            {
+                                if (dimtype.DimQlty == dimtype.DimQlty)
+                                {
+                                    ViewBag.DimQltySelected = "Selected";
+                                }
+                                <option value="@dimtype.DimQlty" ViewBag.DimQltySelected >@dimtype.DimQlty</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Sub Type ID Of Diamond" value="@Model.DimSubType">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Carat Of Diamond" value="@Model.Dim_Crt">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Total Pcs Of Diamond In Item" value="@Model.Dim_Pcs">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Weight Of Each Diamond (Grams)" value="@Model.Dim_Gm">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Size Of Each Diamond" value="@Model.Dim_Size">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Rate Of Each Diamond" value="@Model.Dim_Rate">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Total Amount Of All Diamonds In Item" value="@Model.Dim_Amt">
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

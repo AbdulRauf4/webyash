@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Edit Product - Admin";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 mx-auto">
+            <div class="bg-light w-100 my-5 rounded p-4">
+                <h2>Edit Product</h2>
+                @Model 
+                <form method="post" action="@Url.Action("editProduct", "Admin")">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="prod-addon1">PRD</span>
+                        <input type="text" class="form-control" placeholder="Enter Product ID" name="Prod_ID" value="@Model.Prod_ID" required="required" aria-label="prod-Id"
+                               aria-describedby="prod-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Product Type" name="Prod_Type" value="@Model.Prod_Type" required="required" aria-label="prod-Type">
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Stones - Admin Dashboard";
+
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-secondary" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+
+<!-- Stones Counter -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa-solid fa-star fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Stones Qualities</p>
+                    <h6 class="mb-0">$1234</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#stoneQlty">Add Stone Quality</button>
+        </div>
+        <div class="col-sm-6 col-xl-6">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Stones</p>
+                    <h6 class="mb-0">$1234</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline-primary w-100 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#addStone">Add Stone</button>
+        </div>
+    </div>
+</div>
+<!-- Stones Counter -->
+<!-- Modals of stones counter forms -->
+<!-- Modal Add Stone Quantity-->
+<div class="modal fade" id="stoneQlty" tabindex="-1" aria-labelledby="stoneQlty" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Stone Quality</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Quality Form -->
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="st-addon1">ST</span>
+                        <input type="number" class="form-control" placeholder="Enter Stone ID" aria-label="stone-Id"
+                               aria-describedby="st-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Stone Quality" aria-label="stone-Qlty">
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" type="button">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add Stone-->
+<div class="modal fade" id="addStone" tabindex="-1" aria-labelledby="addStone" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Stone</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Quality Form -->
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Style Code" aria-label="style-code">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter Stone Quality" aria-label="stone-Qlty">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Stone Grams" aria-label="stone-Gm">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Stone Pieces" aria-label="stone-Pcs">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Stone Carat" aria-label="stone-Crt">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Stone Rate" aria-label="stone-Rate">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="Enter Stone Amount" aria-label="stone-Amt">
+                    </div>
+                    <button class="btn btn-primary w-100 mt-2" type="button">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
